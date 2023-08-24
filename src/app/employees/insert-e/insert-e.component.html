@@ -1,0 +1,110 @@
+<section id="addEm">
+  <div class="container p-2">
+    <div class="row mt-2">
+      <div class="col-8 offset-2">
+        <hr />
+        <!-- {{addForm.valid}} -->
+        <form [formGroup]="addForm" (ngSubmit)="saveEmployee()">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="text-center">ADD NEW JOB_EDITOR</h3>
+            </div>
+
+            <div class="card-body">
+              <div class="form-group col-md-6 mb-3">
+                <label for="name">fullName</label>
+                <input type="text" formControlName="fullName" class="form-control" name="name" id="name"
+                  aria-describedby="helpid" placeholder="name" />
+                <div *ngIf="fullName?.invalid && (fullName?.dirty || fullName?.touched)" class="alert alert-danger">
+
+                  <div *ngIf="fullName?.errors?.['required']">
+                    fullName không được để rỗng
+                  </div>
+                  <div *ngIf="fullName?.errors?.['minlength']">
+                    fullName phải ít nhất 8 kí tự
+                  </div>
+                  <div *ngIf="fullName?.errors?.['forbiddenName']">
+                    Name cannot be Bob.
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="form-group col-md-6 mb-3">
+                <label for="userName">UserName</label>
+                <input type="userName" formControlName="userName" class="form-control" name="userName" id="userName"
+                  aria-describedby="userNameHid" placeholder="userName" />
+                <div *ngIf="userName?.invalid && (userName?.dirty || userName?.touched)" class="alert alert-danger">
+
+                  <div *ngIf="userName?.errors?.['required']">
+                    userName không được để rỗng
+                  </div>
+                  <div *ngIf="userName?.errors?.['minlength']">
+                    userName phải ít nhất 8 kí tự
+                  </div>
+                  <div *ngIf="userName?.errors?.['forbiddenName']">
+                    Name cannot be Bob.
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-group col-md-6 mb-3">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" class="form-control" name="password" id="password"
+                  aria-describedby="passwordHid" placeholder="Password" />
+                <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="alert alert-danger">
+
+                  <div *ngIf="password?.errors?.['required']">
+                    password không được để rỗng
+                  </div>
+                  <div *ngIf="password?.errors?.['minlength']">
+                    password phải ít nhất 8 kí tự
+                  </div>
+                  <div *ngIf="password?.errors?.['forbiddenName']">
+                    Name cannot be Bob.
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group col-md-6 mb-3">
+                <label for="address">Địa chỉ</label>
+                <input type="address" formControlName="address" class="form-control" name="address" id="address"
+                  aria-describedby="addressHid" placeholder="address" />
+                <div *ngIf="address?.invalid && (address?.dirty || address?.touched)" class="alert alert-danger">
+
+                  <div *ngIf="address?.errors?.['required']">
+                    homeTown không được để rỗng
+                  </div>
+                  <div *ngIf="address?.errors?.['forbiddenName']">
+                    Name cannot be Bob.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-md-6 mb-3">
+                <label for="age">Tuổi</label>
+                <input type="age" formControlName="age" class="form-control" name="age" id="age"
+                  aria-describedby="genderHid" placeholder="age" />
+                <div *ngIf="age?.invalid && (age?.dirty || age?.touched)" class="alert alert-danger">
+
+                  <div *ngIf="age?.errors?.['required']">
+                    gender không được để rỗng
+                  </div>
+                  <div *ngIf="age?.errors?.['forbiddenName']">
+                    Name cannot be Bob.
+                  </div>
+                </div>
+              </div>
+
+              <button (click)="showSuccess()" type="submit" class="btn btn-primary" [disabled]="!addForm.valid">
+                Đăng kí
+              </button>
+            </div>
+            <div class="card-footer text-muted"></div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+

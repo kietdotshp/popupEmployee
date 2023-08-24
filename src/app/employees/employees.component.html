@@ -1,0 +1,53 @@
+<div class="container">
+
+    <table  id="tb-view" class="table table-bordered table-sm table-hover table-striped" >
+      <thead>
+        <tr>
+          <th>Tên tài khoản</th>
+          <th>Họ tên</th>
+          <th>password</th>
+          <th>Địa chỉ</th>
+          <th>Tuổi</th>
+          <th>Chức năng </th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let employees of employee">
+          <td>{{ employees.userName }}</td>
+          <td>{{ employees.fullName }}</td>
+          <td>{{ employees.password }}</td>
+          <td>{{ employees.address }}</td>
+          <td>{{ employees.age }}</td>
+          <td class="text-nowrap" style="width: 1px">
+            <button type="button" class="btn btn-info" style="margin-right: 2px"
+              [routerLink]="['../updateEmployee/' + employees.id]">
+
+              Sửa
+            </button>
+            <button type="button"  id="deleteButton" class="btn btn-danger" style="margin-right: 2px" (click)="deleteEmployees(employees.id)">
+
+              Xóa
+            </button>
+
+          </td>
+
+        </tr>
+        <br>
+        <button type="button"  class="btn btn-primary " style="margin-right: 20px"
+          routerLink="../insertEmployees">
+          Thêm
+        </button>
+      </tbody>
+    </table>
+
+
+  <!-- </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary">
+      Close
+    </button>
+    <button type="button" class="btn btn-primary" >Save changes</button>
+  </div> -->
+
+
